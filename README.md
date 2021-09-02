@@ -1,4 +1,4 @@
 # algorithm
-algorithm learning
+Algorithm learning
 
-more at [qoogle.top](https://qoogle.top)
+More at [qoogle.top](https://qoogle.top)

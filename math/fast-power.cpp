@@ -1,3 +1,4 @@
+// 费马小定理 https://zh.wikipedia.org/wiki/%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
