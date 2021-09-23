@@ -1,16 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
+int n, a, cnt;
 int main() {
-    int t; 
-    cin >> t;
-    while(t--) {
-        int x, cnt = 0;
-        cin >> x;
-        while (x) {
-            x -= x & (-x);
+    cin>>n;
+    while (n--) {
+        cin>>a;
+        cnt = 0;
+        while (a) {
+            a -= a & (-a);
             ++cnt;
         }
-        cout << cnt << " ";
+        cout<<cnt<<" ";
     }
-    return 0;
 }
