@@ -7,7 +7,7 @@ const int N = 100010;
 int a[N];
 
 void quick_sort(int l, int r) {
-    if (l >= e) return;
+    if (l >= r) return;
     int i = l - 1, j = r + 1, m = a[l + r >> 1];
     while (i < j) {
         while (a[++i] < m);
