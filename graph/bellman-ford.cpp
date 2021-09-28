@@ -1,3 +1,5 @@
+// this mind of bellman-ford algorithm is stupid?
+// but, are you able to keep in mind?
 #include<bits/stdc++.h>
 using namespace std;
 const int N=510,M=1e5+10;
