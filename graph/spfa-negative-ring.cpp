@@ -1,18 +1,21 @@
 #include<bits/stdc++.h>
 using namespace std;
 const int N=1e5+10;
-int d[N],q[N],head[N],ver[N],edge[N],Next[N],tot,tt=-1,hh;
-int vis[N],n,m;
-void add(int a, int b, int c) {
+int head[N],ver[N],Next[N],edge[N],tot;
+int q[N],tt=-1,hh;
+int d[N],vis[N],cnt[N];
+int n,m;
+void add(int a,int b,int c) {
     ver[++tot]=b;
     edge[tot]=c;
     Next[tot]=head[a];
     head[a]=tot;
 }
 void spfa() {
-    q[++tt]=1;
-    vis[1]=1;
-    d[1]=0;
+    for (int i=1;i<=n;++i) {
+        q[++tt]=i;
+        vis[i]=1;
+    }
     while (hh<=tt) {
         auto u=q[hh++];
         vis[u]=0;
@@ -20,21 +23,21 @@ void spfa() {
             auto v=ver[i], w=edge[i];
             if (d[v]>d[u]+w) {
                 d[v]=d[u]+w;
-                if (!vis[v]) q[++tt]=v;
+                cnt[v]=cnt[u]+1;
+                if (vis[v]==0) q[++tt]=v;
                 vis[v]=1;
+                if (cnt[v]>=n) {
+                    cout<<"Yes"<<endl;
+                    return;
+                }
             }
         }
     }
-    if (d[n] > 0x3f3f3f3f/2) {
-        cout<<"impossible"<<endl;
-    } else {
-        cout<<d[n]<<endl;
-    }
+    cout<<"No"<<endl;
 }
 int main() {
-    cin>>n>>m;
-    memset(d, 0x3f, sizeof d);
     memset(head, -1, sizeof head);
+    cin>>n>>m;
     for (int i=0;i<m;++i) {
         int a,b,c;
         cin>>a>>b>>c;
