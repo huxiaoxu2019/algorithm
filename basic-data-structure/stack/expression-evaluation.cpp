@@ -10,7 +10,7 @@ void eval() {
     auto op = ops.top(); ops.pop();
     int c = 0;
     if (op == '+') {
-        c = a + b; 
+        c = a + b;
     } else if (op == '-') {
         c = a - b;
     } else if (op == '*') {
