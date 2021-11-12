@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 const int N=1e5+10;
-int head[N],ver[N],Next[N],edge[N], tot;
+int head[N],ver[N],Next[N],edge[N],tot;
 int q[N],tt=-1,hh;
 int d[N],vis[N],cnt[N];
 int n,m;
