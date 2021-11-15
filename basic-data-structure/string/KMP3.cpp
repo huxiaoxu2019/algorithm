@@ -5,6 +5,7 @@ int n,m, Next[N];
 string s,p; // n = s.size(), m = p.size()
 vector<int> ans;
 void getNext() {
+    // be careful the limit var(n), not m
     for (int i=0,j=1;j<n;++j) {
         while (i > 0 && p[i] != p[j]) i=Next[i-1];
         if (p[i] == p[j]) ++i;
