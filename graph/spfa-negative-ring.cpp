@@ -2,7 +2,7 @@
 using namespace std;
 const int N=1e5+10;
 int head[N],ver[N],Next[N],edge[N],tot;
-int q[N],tt=-1,hh;
+int q[N],tt=-1,hh; // tt is -1, add operation will update tt index
 int d[N],vis[N],cnt[N];
 int n,m;
 void add(int a,int b,int c) {
@@ -12,6 +12,7 @@ void add(int a,int b,int c) {
     head[a]=tot;
 }
 void spfa() {
+    // need to initial all the point the graph
     for (int i=1;i<=n;++i) {
         q[++tt]=i;
         vis[i]=1;
