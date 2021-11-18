@@ -1,3 +1,4 @@
+// TIP: add the point to queue, which will decrease the dist from starting point
 #include<bits/stdc++.h>
 using namespace std;
 const int N=1e5+10;
@@ -15,7 +16,7 @@ void spfa() {
     d[1]=0;
     while (hh<=tt) {
         auto u=q[hh++];
-        vis[u]=0;
+        vis[u]=0; // remember set flag to false while removed from queue
         for (int i=head[u];i!=-1;i=Next[i]) {
             auto v=ver[i], w=edge[i];
             if (d[v]>d[u]+w) {

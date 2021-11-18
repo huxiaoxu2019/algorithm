@@ -1,29 +1,25 @@
-// aw843
 #include<bits/stdc++.h>
 using namespace std;
-typedef unsigned long long ULL;
-const int N = 1e5 + 5;
-ULL h[N], p[N];
+const int N=1e5+10,M=131;
 char str[N];
-int n, m, P = 131;
-int getHash(int l, int r) {
-   return h[r] - h[l - 1] * p[r - l + 1];
+typedef unsigned long long LL;
+int n,m,l1,r1,l2,r2;
+LL p[N],h[N]; // p[i], i is for 131^i, i <= N, h[j], j is from index 1
+LL getHash(int l, int r) {
+    return h[r] - h[l-1]*p[r-l+1];
 }
 int main() {
-    scanf("%d%d%s", &n, &m, str + 1);
-    p[0] = 1;
-    for (int i = 1; i <= n; ++i) {
-        p[i] = p[i - 1] * P;
-        h[i] = h[i - 1] * P + str[i];
+    cin>>n>>m;
+    p[0]=1;
+    cin>>str;
+    for (int i=1;i<N;++i) {
+        p[i] = p[i-1]*M;
+        h[i] = h[i-1]*M+str[i-1]; // h[i], i is from 1, for the edge case
     }
-    while (m--) {
-        int l1, l2, r1, r2;
-        scanf("%d%d%d%d", &l1, &r1, &l2, &r2);
-        if (getHash(l1, r1) == getHash(l2, r2)) {
-            puts("Yes");
-        } else {
-            puts("No");
-        }
+    for (int i=0;i<m;++i) {
+        cin>>l1>>r1>>l2>>r2;
+        if (getHash(l1,r1)==getHash(l2,r2)) cout<<"Yes"<<endl;
+        else cout<<"No"<<endl;
     }
     return 0;
 }
