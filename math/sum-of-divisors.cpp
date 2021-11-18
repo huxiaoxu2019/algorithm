@@ -1,34 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long LL;
+const int MOD=1e9+7;
+int n, a;
+unordered_map<int, int> prime;
+LL sum=1;
 int main() {
-    int n;
-    cin >> n;
-    unordered_map<int, int> primes;
-    while (n--) {
-        int x;
-        scanf("%d", &x);
-        for (int i = 2; i <= x / i; i++) {
-            while (x % i == 0) {
-                primes[i]++;
-                x /= i;
+    cin>>n;
+    for (int i=0;i<n;++i) {
+        cin>>a;
+        for (int j=2;j<=a/j;++j) {
+            while (a%j==0) {
+                prime[j]++;
+                a/=j;
             }
         }
-        if (x > 1) primes[x]++;
+        if (a>1) prime[a]++;
     }
-
-    LL res = 1;
-    int mod = 1e9 + 7;
-    for (auto& prime : primes) {
-        auto p = prime.first, a = prime.second;
-        LL t = 1;
-        while (a--) {
-            t = (t * p + 1) % mod;
-        }
-        res = (res * t) % mod;
+    for (auto& x:prime) {
+        sum *= (1 + x.second);
+        sum %= MOD;
     }
-
-
-    cout << res << endl;
+    cout<<sum<<endl;
     return 0;
 }
