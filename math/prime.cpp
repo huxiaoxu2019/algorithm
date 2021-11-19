@@ -1,16 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
+typedef unsigned long long ULL;
 const int N=1e6+10;
 int st[N],prime[N],cnt;
 int n;
 void getPrimes(int n) {
-    // 埃及筛法
-    for (int i=2;i<=n;++i) {
+    // 埃及筛法 O(nlogn)
+    for (ULL i=2;i<=n;++i) {
         if (!st[i]) {
             prime[++cnt]=i;
-            for (int j=prime[cnt];j<=n;j+=prime[cnt]) {
-                st[j]=true;
-            }
+            for (ULL j=i*i;j<=n;j+=i) st[j]=1;
         }
     }
     cout<<cnt<<endl;
@@ -20,7 +19,7 @@ void getPrimes2(int n) {
     for (int i=2;i<=n;++i) {
         if (!st[i]) prime[++cnt]=i;
         for (int j=1;prime[j]*i<=n;++j) {
-            st[prime[j]*i]=true;
+            st[prime[j]*i]=1;
             if (i%prime[j]==0) break;
         }
     }
@@ -28,6 +27,6 @@ void getPrimes2(int n) {
 }
 int main() {
     cin>>n;
-    getPrimes2(n);
+    getPrimes(n);
     return 0;
 }
