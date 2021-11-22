@@ -1,3 +1,5 @@
+// 筛素数
+// 素数定理 π(1e7) = 664579
 #include<bits/stdc++.h>
 using namespace std;
 typedef unsigned long long ULL;
@@ -9,6 +11,8 @@ void getPrimes(int n) {
     for (ULL i=2;i<=n;++i) {
         if (!st[i]) {
             prime[++cnt]=i;
+            // i    2*i     3*i     4*i
+            // i^2  2*i^2   3*i^2   4*i^2 变形：筛“无平方因子”的数
             for (ULL j=i*i;j<=n;j+=i) st[j]=1;
         }
     }
