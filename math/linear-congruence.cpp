@@ -4,7 +4,7 @@ typedef long long LL;
 // ax ≡ b (mod m)
 // xa + ym = b
 // gcd(a,m) 能整除 b，则有解
-// x * b / gcm(a,m)
+// x * (b / gcm(a,m))
 using namespace std;
 int n,a,b,m;
 int exgcd(int a, int b, int& x, int& y) {
