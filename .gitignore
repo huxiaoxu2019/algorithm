@@ -7,3 +7,5 @@ a.o*
 cmake-build-debug
 a
 .*
+input
+run.sh

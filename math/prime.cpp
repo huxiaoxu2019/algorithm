@@ -22,7 +22,7 @@ void getPrimes(int n) {
 void getPrimes2(int n) {
     for (int i=2;i<=n;++i) {
         if (!st[i]) prime[++cnt]=i;
-        for (int j=1;prime[j]*i<=n;++j) {
+        for (int j=1;prime[j]*i<=n;++j) { // just check prime[j]*i <= n
             st[prime[j]*i]=1;
             if (i%prime[j]==0) break;
         }
