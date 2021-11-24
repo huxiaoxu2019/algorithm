@@ -1,3 +1,5 @@
+// 中国剩余定理
+// 题目未懂
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
